@@ -14,8 +14,8 @@ export class Blog {
     @Prop({ required: true })
     blogBody: string;
 
-    @Prop({ required: true })
-    thumbnailUrl: string;
+    // @Prop({ required: true })
+    // thumbnailUrl: string;
 
     @Prop({ type: MongooseSchema.Types.ObjectId , ref: 'User' })
     authorId:  Types.ObjectId 

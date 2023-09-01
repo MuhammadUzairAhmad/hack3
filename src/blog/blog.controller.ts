@@ -1,8 +1,8 @@
 import {
   Controller,
   Get,
-  UploadedFile,
-  UseInterceptors,
+  // UploadedFile,
+  // UseInterceptors,
   Post,
   Body,
   Patch,
@@ -13,7 +13,7 @@ import {
 import { BlogService } from './blog.service';
 import { CreateBlogDto } from './dto/create-blog.dto';
 import { UpdateBlogDto } from './dto/update-blog.dto';
-import { FileInterceptor } from '@nestjs/platform-express';
+// import { FileInterceptor } from '@nestjs/platform-express';
 import { AuthGuard } from '@nestjs/passport';
 import { Blog } from 'src/models/BlogModel';
 // import { storage } from './multerConfig';
@@ -24,13 +24,13 @@ export class BlogController {
 
   @UseGuards(AuthGuard())
   @Post('new')
-  @UseInterceptors(FileInterceptor('thumbnailImage'))
+  // @UseInterceptors(FileInterceptor('thumbnailImage'))
   async create(
-    @UploadedFile() file: Express.Multer.File,
+    // @UploadedFile() file: Express.Multer.File,
     @Body() createBlogDto: CreateBlogDto,
   ) {
     console.log("object",createBlogDto)
-    return this.blogService.create(createBlogDto, file);
+    return this.blogService.create(createBlogDto);
   }
 
   @Get()
